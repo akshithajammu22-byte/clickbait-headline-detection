@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clickbait Headline Detector | AI Sensationalism & NLP Analyzer</title>
+  <meta name="description" content="State-of-the-art Natural Language Processing & Machine Learning platform to detect, evaluate, and neutralize clickbait headlines.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="dark-theme">
+  <!-- Background Ambient Glows -->
+  <div class="glow-orb orb-primary"></div>
+  <div class="glow-orb orb-secondary"></div>
+  <div class="glow-orb orb-accent"></div>
+
+  <!-- Main Container -->
+  <div class="app-wrapper">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="header-brand">
+        <div class="brand-logo">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1 class="brand-title">VERITAS <span class="gradient-text">NLP</span></h1>
+          <p class="brand-subtitle">Clickbait Headline Detection & Sensationalism Intelligence</p>
+        </div>
+      </div>
+      <div class="header-status">
+        <span class="status-indicator live"></span>
+        <span class="status-text">ML Model Active: <strong id="active-model-name">Voting Ensemble</strong></span>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="nav-tabs" role="tablist">
+      <button class="nav-tab active" id="tab-btn-live" data-tab="live" role="tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 4.24 4.24M14.83 9.17l4.24-4.24M14.83 14.83l4.24 4.24M9.17 14.83l-4.24 4.24"/></svg>
+        Live Analyzer
+      </button>
+      <button class="nav-tab" id="tab-btn-batch" data-tab="batch" role="tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Batch & CSV Processor
+      </button>
+      <button class="nav-tab" id="tab-btn-models" data-tab="models" role="tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+        Model Benchmarks
+      </button>
+      <button class="nav-tab" id="tab-btn-dataset" data-tab="dataset" role="tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        Dataset Explorer
+      </button>
+      <button class="nav-tab" id="tab-btn-api" data-tab="api" role="tab">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        REST API Docs
+      </button>
+    </nav>
+
+    <!-- TAB 1: LIVE ANALYZER -->
+    <section class="tab-pane active" id="pane-live">
+      <div class="analyzer-grid">
+        <!-- Input Column -->
+        <div class="card glass-card input-card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+              Headline Input & Tester
+            </h2>
+            <span class="badge badge-accent">Real-Time NLP</span>
+          </div>
+
+          <div class="input-form">
+            <label for="headline-input" class="input-label">Enter News or Article Headline to Evaluate:</label>
+            <div class="textarea-wrapper">
+              <textarea id="headline-input" class="custom-textarea" rows="3" placeholder="e.g. 10 Shocking Secrets Flight Attendants Don't Want You To Know! (#4 Is Insane)"></textarea>
+              <button id="clear-btn" class="icon-button" title="Clear text">✕</button>
+            </div>
+
+            <div class="input-actions">
+              <button id="analyze-btn" class="btn btn-primary btn-glow">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                Analyze Headline
+              </button>
+              <button id="random-sample-btn" class="btn btn-secondary">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                Try Sample
+              </button>
+            </div>
+
+            <!-- Quick Preset Chips -->
+            <div class="preset-section">
+              <span class="preset-label">Quick Test Presets:</span>
+              <div class="preset-chips" id="preset-chips">
+                <button class="chip chip-cb" data-text="15 Mind-Blowing Facts You Won't Believe Actually Happened!">Mind-Blowing Listicles</button>
+                <button class="chip chip-legit" data-text="Federal Reserve Holds Benchmark Interest Rate Steady Following Policy Meeting">Central Bank Policy</button>
+                <button class="chip chip-cb" data-text="She Opened The Mystery Box And What Happened Next Left Everyone In Tears">Curiosity Bait</button>
+                <button class="chip chip-legit" data-text="NASA Telescopes Uncover Evidence of Ancient Riverbeds on Mars">NASA Mars Research</button>
+                <button class="chip chip-cb" data-text="Why Everyone In Hollywood Is FURIOUS Over This Leaked Audio Clip">Celebrity Meltdown</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Output Column: Live Gauge & Summary -->
+        <div class="card glass-card result-card" id="result-container">
+          <div class="card-header">
+            <h2 class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+              AI Detection Verdict
+            </h2>
+            <span class="badge" id="risk-badge">Awaiting Input</span>
+          </div>
+
+          <div class="result-placeholder" id="result-placeholder">
+            <div class="placeholder-icon">🎯</div>
+            <h3>Enter a headline above to see detailed NLP classification</h3>
+            <p>Our ensemble ML model evaluates curiosity gaps, sensational words, capitalization spikes, and syntactic clickbait structures.</p>
+          </div>
+
+          <div class="result-content hidden" id="result-content">
+            <div class="verdict-banner" id="verdict-banner">
+              <div class="verdict-text-group">
+                <span class="verdict-tag" id="verdict-tag">CLICKBAIT DETECTED</span>
+                <h3 class="verdict-headline" id="verdict-headline">15 Mind-Blowing Facts...</h3>
+                <p class="verdict-desc" id="verdict-desc">High probability of sensationalism and curiosity gap traps.</p>
+              </div>
+              
+              <!-- Circular Progress Gauge -->
+              <div class="gauge-wrapper">
+                <svg class="progress-ring" width="130" height="130">
+                  <circle class="progress-ring__circle-bg" stroke="rgba(255,255,255,0.08)" stroke-width="10" fill="transparent" r="54" cx="65" cy="65"/>
+                  <circle class="progress-ring__circle" id="gauge-circle" stroke="#ef4444" stroke-width="10" stroke-linecap="round" fill="transparent" r="54" cx="65" cy="65"/>
+                </svg>
+                <div class="gauge-value">
+                  <span class="gauge-number" id="gauge-pct">0</span><span class="gauge-pct-sign">%</span>
+                  <span class="gauge-label">Clickbait Score</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Probability Balance Bar -->
+            <div class="probability-split">
+              <div class="prob-labels">
+                <span class="label-left">Clickbait: <strong id="val-cb-prob">0%</strong></span>
+                <span class="label-right">Legitimate: <strong id="val-legit-prob">0%</strong></span>
+              </div>
+              <div class="split-bar">
+                <div class="split-fill-cb" id="bar-fill-cb" style="width: 50%;"></div>
+                <div class="split-fill-legit" id="bar-fill-legit" style="width: 50%;"></div>
+              </div>
+            </div>
+
+            <!-- Sensational Token Highlighter -->
+            <div class="token-highlighter-card">
+              <div class="section-label">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                Token & Sensationalism Highlighter:
+              </div>
+              <div class="token-stream" id="token-stream">
+                <!-- Injected via JS -->
+              </div>
+              <div class="token-legend">
+                <span class="legend-item"><span class="dot dot-trigger"></span> Sensational Trigger</span>
+                <span class="legend-item"><span class="dot dot-caps"></span> All-Caps Emphasis</span>
+                <span class="legend-item"><span class="dot dot-punct"></span> Punctuation Spike</span>
+              </div>
+            </div>
+
+            <!-- Linguistic Features Breakdown Grid -->
+            <div class="linguistic-grid">
+              <div class="ling-card">
+                <span class="ling-title">Sensationalism Heuristic</span>
+                <span class="ling-val" id="metric-sensationalism">8.5 / 10</span>
+              </div>
+              <div class="ling-card">
+                <span class="ling-title">Capitalization Ratio</span>
+                <span class="ling-val" id="metric-caps">32.4%</span>
+              </div>
+              <div class="ling-card">
+                <span class="ling-title">Punctuation Markers</span>
+                <span class="ling-val" id="metric-punct">! : 2 | ? : 0</span>
+              </div>
+              <div class="ling-card">
+                <span class="ling-title">Listicle Structure</span>
+                <span class="ling-val" id="metric-listicle">Detected</span>
+              </div>
+              <div class="ling-card">
+                <span class="ling-title">Click Triggers Found</span>
+                <span class="ling-val" id="metric-triggers">2 triggers</span>
+              </div>
+              <div class="ling-card">
+                <span class="ling-title">Word & Character Count</span>
+                <span class="ling-val" id="metric-counts">12 words (72 chars)</span>
+              </div>
+            </div>
+
+            <!-- AI Objective Journalistic Rephrase -->
+            <div class="rewrite-card" id="rewrite-container">
+              <div class="rewrite-header">
+                <div class="rewrite-title">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+                  AI Journalistic Neutralizer (Objective Rewrite):
+                </div>
+                <span class="badge badge-success">De-Sensationalized</span>
+              </div>
+              <div class="rewrite-body" id="rewrite-text">
+                "Analysis and overview of key airline attendant protocols."
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 2: BATCH & CSV PROCESSOR -->
+    <section class="tab-pane" id="pane-batch">
+      <div class="batch-layout">
+        <!-- Batch Input Options -->
+        <div class="card glass-card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload CSV Dataset or Paste Multiple Headlines
+            </h2>
+          </div>
+
+          <div class="batch-input-grid">
+            <!-- File Drop Zone -->
+            <div class="drop-zone" id="csv-drop-zone">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              <p class="drop-text">Drag & drop your <strong>.CSV</strong> file here, or <span class="highlight">browse</span></p>
+              <input type="file" id="csv-file-input" accept=".csv" class="hidden-file-input">
+              <span class="file-name-label" id="file-name-label">No file selected</span>
+            </div>
+
+            <!-- Multi-line Text Area -->
+            <div class="batch-text-area-group">
+              <label for="batch-textarea" class="input-label">Or paste one headline per line (up to 500):</label>
+              <textarea id="batch-textarea" class="custom-textarea" rows="6" placeholder="Paste multiple headlines here...
+10 Things You Won't Believe Happened
+Senate Approves Defense Spending Bill
+This Secret Trick Will Fix Your PC
+NASA Lands Probe on Europa"></textarea>
+            </div>
+          </div>
+
+          <div class="batch-actions">
+            <button id="batch-run-btn" class="btn btn-primary btn-glow">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Process Batch Headlines
+            </button>
+            <button id="load-sample-batch-btn" class="btn btn-secondary">
+              Load Sample Batch
+            </button>
+          </div>
+        </div>
+
+        <!-- Batch Results Dashboard -->
+        <div class="card glass-card hidden" id="batch-results-card">
+          <div class="card-header">
+            <h2 class="card-title">Batch Evaluation Results</h2>
+            <button id="export-csv-btn" class="btn btn-secondary btn-sm">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Export Classified CSV
+            </button>
+          </div>
+
+          <!-- Summary Stat Cards -->
+          <div class="stats-summary-grid">
+            <div class="stat-box">
+              <span class="stat-number" id="stat-total">0</span>
+              <span class="stat-desc">Total Evaluated</span>
+            </div>
+            <div class="stat-box stat-danger">
+              <span class="stat-number" id="stat-cb-count">0</span>
+              <span class="stat-desc">Clickbait Detected (<span id="stat-cb-pct">0%</span>)</span>
+            </div>
+            <div class="stat-box stat-success">
+              <span class="stat-number" id="stat-legit-count">0</span>
+              <span class="stat-desc">Objective News (<span id="stat-legit-pct">0%</span>)</span>
+            </div>
+          </div>
+
+          <!-- Filter & Search Controls -->
+          <div class="table-controls">
+            <input type="text" id="table-search" class="search-input" placeholder="Search evaluated headlines...">
+            <div class="filter-group">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="clickbait">Clickbait Only</button>
+              <button class="filter-btn" data-filter="legitimate">Legitimate Only</button>
+            </div>
+          </div>
+
+          <!-- Results Table -->
+          <div class="table-wrapper">
+            <table class="data-table" id="batch-table">
+              <thead>
+                <tr>
+                  <th style="width: 5%;">#</th>
+                  <th style="width: 45%;">Headline Text</th>
+                  <th style="width: 15%;">Verdict</th>
+                  <th style="width: 15%;">Clickbait Prob</th>
+                  <th style="width: 20%;">Risk Tier</th>
+                </tr>
+              </thead>
+              <tbody id="batch-table-body">
+                <!-- Rows injected via JS -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 3: MODEL BENCHMARKS -->
+    <section class="tab-pane" id="pane-models">
+      <div class="models-grid">
+        <!-- Model Comparison Cards -->
+        <div class="models-overview card glass-card">
+          <div class="card-header">
+            <h2 class="card-title">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+              Multi-Model Machine Learning Benchmarks
+            </h2>
+            <span class="badge badge-accent">5 Architectures Evaluated</span>
+          </div>
+          
+          <div class="models-cards-row" id="models-cards-row">
+            <!-- Dynamically populated -->
+          </div>
+        </div>
+
+        <!-- Visual Analytics & Confusion Matrix -->
+        <div class="benchmarks-split">
+          <!-- Confusion Matrix Visualizer -->
+          <div class="card glass-card">
+            <div class="card-header">
+              <h2 class="card-title">Confusion Matrix Visualizer</h2>
+              <select id="matrix-model-select" class="custom-select">
+                <!-- Populated via JS -->
+              </select>
+            </div>
+            <div class="cm-wrapper" id="cm-wrapper">
+              <div class="cm-grid">
+                <div class="cm-cell cm-header-cell"></div>
+                <div class="cm-cell cm-header-cell">Pred: Legitimate (0)</div>
+                <div class="cm-cell cm-header-cell">Pred: Clickbait (1)</div>
+
+                <div class="cm-cell cm-header-cell">True: Legitimate (0)</div>
+                <div class="cm-cell cm-true-neg" id="cm-tn">
+                  <span class="cm-val">0</span>
+                  <span class="cm-sub">True Negative</span>
+                </div>
+                <div class="cm-cell cm-false-pos" id="cm-fp">
+                  <span class="cm-val">0</span>
+                  <span class="cm-sub">False Positive</span>
+                </div>
+
+                <div class="cm-cell cm-header-cell">True: Clickbait (1)</div>
+                <div class="cm-cell cm-false-neg" id="cm-fn">
+                  <span class="cm-val">0</span>
+                  <span class="cm-sub">False Negative</span>
+                </div>
+                <div class="cm-cell cm-true-pos" id="cm-tp">
+                  <span class="cm-val">0</span>
+                  <span class="cm-sub">True Positive</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Top Feature Words -->
+          <div class="card glass-card">
+            <div class="card-header">
+              <h2 class="card-title">Top Clickbait Predictor Keywords (Feature Weights)</h2>
+            </div>
+            <div class="keywords-list" id="keywords-list">
+              <!-- Populated via JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: DATASET EXPLORER -->
+    <section class="tab-pane" id="pane-dataset">
+      <div class="dataset-layout card glass-card">
+        <div class="card-header">
+          <h2 class="card-title">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+            Dataset Explorer & Corpus Analytics
+          </h2>
+          <span class="badge badge-accent" id="dataset-count-badge">Loaded Corpus</span>
+        </div>
+
+        <div class="dataset-stats-cards">
+          <div class="stat-box">
+            <span class="stat-number" id="ds-total">0</span>
+            <span class="stat-desc">Total Headlines</span>
+          </div>
+          <div class="stat-box stat-danger">
+            <span class="stat-number" id="ds-cb">0</span>
+            <span class="stat-desc">Clickbait / Sensational</span>
+          </div>
+          <div class="stat-box stat-success">
+            <span class="stat-number" id="ds-legit">0</span>
+            <span class="stat-desc">Objective / Factual News</span>
+          </div>
+          <div class="stat-box">
+            <span class="stat-number" id="ds-vocab">8,000</span>
+            <span class="stat-desc">TF-IDF Vocabulary Size</span>
+          </div>
+        </div>
+
+        <div class="table-controls">
+          <input type="text" id="dataset-search" class="search-input" placeholder="Search dataset samples...">
+        </div>
+
+        <div class="table-wrapper">
+          <table class="data-table" id="dataset-table">
+            <thead>
+              <tr>
+                <th style="width: 60%;">Headline Sample</th>
+                <th style="width: 20%;">Category / Subject</th>
+                <th style="width: 20%;">Classification</th>
+              </tr>
+            </thead>
+            <tbody id="dataset-table-body">
+              <!-- Loaded dynamically -->
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 5: REST API DOCS -->
+    <section class="tab-pane" id="pane-api">
+      <div class="api-docs-grid">
+        <div class="card glass-card">
+          <div class="card-header">
+            <h2 class="card-title">REST API Endpoints</h2>
+            <span class="badge badge-accent">JSON HTTP API</span>
+          </div>
+
+          <div class="endpoint-block">
+            <div class="endpoint-header">
+              <span class="http-method post">POST</span>
+              <span class="endpoint-path">/api/predict</span>
+            </div>
+            <p class="endpoint-desc">Evaluates a single headline string and returns prediction, probabilities, linguistic features, token highlights, and neutral rephraser suggestion.</p>
+            
+            <div class="code-title">Sample Request:</div>
+            <pre class="code-box"><code>curl -X POST http://localhost:5000/api/predict \
+  -H "Content-Type: application/json" \
+  -d '{"headline": "10 Mind-Blowing Secrets Flight Attendants Don\x27t Want You To Know!"}'</code></pre>
+
+            <div class="code-title">Sample Response:</div>
+            <pre class="code-box"><code>{
+  "headline": "10 Mind-Blowing Secrets...",
+  "prediction": "Clickbait Headline",
+  "is_clickbait": true,
+  "clickbait_probability": 94.8,
+  "legitimate_probability": 5.2,
+  "risk_level": "Critical Clickbait",
+  "linguistic_breakdown": {
+    "sensationalism_score": 9.5,
+    "capitalization_pct": 28.2,
+    "all_caps_words": 0,
+    "exclamation_marks": 1,
+    "listicle_pattern": true
+  },
+  "neutral_rewrite": "Overview of Flight Attendant Protocols."
+}</code></pre>
+          </div>
+
+          <div class="endpoint-block">
+            <div class="endpoint-header">
+              <span class="http-method post">POST</span>
+              <span class="endpoint-path">/api/batch</span>
+            </div>
+            <p class="endpoint-desc">Evaluates multiple headlines in batch via JSON array or multipart CSV file upload.</p>
+          </div>
+
+          <div class="endpoint-block">
+            <div class="endpoint-header">
+              <span class="http-method get">GET</span>
+              <span class="endpoint-path">/api/metrics</span>
+            </div>
+            <p class="endpoint-desc">Fetches comprehensive multi-model benchmark evaluation metrics, confusion matrices, and top features.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="app-footer">
+      <p>Veritas Clickbait Headline Detection System • Natural Language Processing & Machine Learning Pipeline</p>
+    </footer>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

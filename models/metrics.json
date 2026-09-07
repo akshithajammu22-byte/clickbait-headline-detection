@@ -1,0 +1,349 @@
+{
+  "dataset_summary": {
+    "total_samples": 12030,
+    "clickbait_samples": 6018,
+    "legitimate_samples": 6012,
+    "test_samples": 2406,
+    "features_count": 6016,
+    "tfidf_vocab_size": 6000,
+    "linguistic_features_count": 16,
+    "total_pipeline_time": 12.53
+  },
+  "models": {
+    "Logistic Regression": {
+      "accuracy": 99.5,
+      "precision": 99.58,
+      "recall": 99.42,
+      "f1_score": 99.5,
+      "roc_auc": 99.98,
+      "confusion_matrix": [
+        [
+          1197,
+          5
+        ],
+        [
+          7,
+          1197
+        ]
+      ],
+      "training_time_sec": 0.16
+    },
+    "Support Vector Machine (Calibrated)": {
+      "accuracy": 99.63,
+      "precision": 99.59,
+      "recall": 99.67,
+      "f1_score": 99.63,
+      "roc_auc": 99.98,
+      "confusion_matrix": [
+        [
+          1197,
+          5
+        ],
+        [
+          4,
+          1200
+        ]
+      ],
+      "training_time_sec": 0.23
+    },
+    "Multinomial Naive Bayes": {
+      "accuracy": 92.98,
+      "precision": 92.73,
+      "recall": 93.27,
+      "f1_score": 93.0,
+      "roc_auc": 98.18,
+      "confusion_matrix": [
+        [
+          1114,
+          88
+        ],
+        [
+          81,
+          1123
+        ]
+      ],
+      "training_time_sec": 0.05
+    },
+    "Random Forest Classifier": {
+      "accuracy": 98.75,
+      "precision": 99.66,
+      "recall": 97.84,
+      "f1_score": 98.74,
+      "roc_auc": 99.83,
+      "confusion_matrix": [
+        [
+          1198,
+          4
+        ],
+        [
+          26,
+          1178
+        ]
+      ],
+      "training_time_sec": 2.22
+    },
+    "Voting Ensemble (LR + SVM + RF)": {
+      "accuracy": 99.5,
+      "precision": 99.67,
+      "recall": 99.34,
+      "f1_score": 99.5,
+      "roc_auc": 99.97,
+      "confusion_matrix": [
+        [
+          1198,
+          4
+        ],
+        [
+          8,
+          1196
+        ]
+      ],
+      "training_time_sec": 2.53
+    }
+  },
+  "best_model": "Support Vector Machine (Calibrated)",
+  "top_clickbait_keywords": [
+    {
+      "word": "boiler",
+      "weight": 1.721
+    },
+    {
+      "word": "boiler room",
+      "weight": 1.721
+    },
+    {
+      "word": "room",
+      "weight": 1.588
+    },
+    {
+      "word": "censorship",
+      "weight": 1.306
+    },
+    {
+      "word": "america",
+      "weight": 1.114
+    },
+    {
+      "word": "ep",
+      "weight": 1.105
+    },
+    {
+      "word": "video",
+      "weight": 1.061
+    },
+    {
+      "word": "room ep",
+      "weight": 1.03
+    },
+    {
+      "word": "choice",
+      "weight": 1.02
+    },
+    {
+      "word": "henningsen",
+      "weight": 0.932
+    },
+    {
+      "word": "hillary clinton",
+      "weight": 0.9
+    },
+    {
+      "word": "hillary",
+      "weight": 0.891
+    },
+    {
+      "word": "turn",
+      "weight": 0.83
+    },
+    {
+      "word": "choose",
+      "weight": 0.772
+    },
+    {
+      "word": "google",
+      "weight": 0.74
+    },
+    {
+      "word": "flat",
+      "weight": 0.739
+    },
+    {
+      "word": "earth",
+      "weight": 0.724
+    },
+    {
+      "word": "yes",
+      "weight": 0.699
+    },
+    {
+      "word": "clinton",
+      "weight": 0.684
+    },
+    {
+      "word": "gop",
+      "weight": 0.665
+    },
+    {
+      "word": "age",
+      "weight": 0.648
+    },
+    {
+      "word": "left",
+      "weight": 0.632
+    },
+    {
+      "word": "globalist",
+      "weight": 0.624
+    },
+    {
+      "word": "people",
+      "weight": 0.624
+    },
+    {
+      "word": "dy",
+      "weight": 0.565
+    },
+    {
+      "word": "julian assange",
+      "weight": 0.554
+    },
+    {
+      "word": "statue",
+      "weight": 0.554
+    },
+    {
+      "word": "julian",
+      "weight": 0.535
+    },
+    {
+      "word": "assange",
+      "weight": 0.534
+    },
+    {
+      "word": "everything",
+      "weight": 0.517
+    }
+  ],
+  "top_legitimate_keywords": [
+    {
+      "word": "house",
+      "weight": 1.277
+    },
+    {
+      "word": "nafta",
+      "weight": 1.213
+    },
+    {
+      "word": "ex",
+      "weight": 1.208
+    },
+    {
+      "word": "trump nominate",
+      "weight": 1.024
+    },
+    {
+      "word": "nominate",
+      "weight": 1.009
+    },
+    {
+      "word": "generation",
+      "weight": 0.891
+    },
+    {
+      "word": "nato",
+      "weight": 0.88
+    },
+    {
+      "word": "factbox",
+      "weight": 0.866
+    },
+    {
+      "word": "say",
+      "weight": 0.806
+    },
+    {
+      "word": "north",
+      "weight": 0.802
+    },
+    {
+      "word": "korea",
+      "weight": 0.788
+    },
+    {
+      "word": "white house",
+      "weight": 0.775
+    },
+    {
+      "word": "south",
+      "weight": 0.723
+    },
+    {
+      "word": "senate",
+      "weight": 0.706
+    },
+    {
+      "word": "senator",
+      "weight": 0.706
+    },
+    {
+      "word": "cftc",
+      "weight": 0.661
+    },
+    {
+      "word": "giant",
+      "weight": 0.65
+    },
+    {
+      "word": "china",
+      "weight": 0.631
+    },
+    {
+      "word": "irma",
+      "weight": 0.599
+    },
+    {
+      "word": "summit",
+      "weight": 0.595
+    },
+    {
+      "word": "chief",
+      "weight": 0.566
+    },
+    {
+      "word": "chair",
+      "weight": 0.559
+    },
+    {
+      "word": "chip",
+      "weight": 0.558
+    },
+    {
+      "word": "white",
+      "weight": 0.551
+    },
+    {
+      "word": "southeast",
+      "weight": 0.545
+    },
+    {
+      "word": "organization",
+      "weight": 0.544
+    },
+    {
+      "word": "unveils",
+      "weight": 0.536
+    },
+    {
+      "word": "vp",
+      "weight": 0.531
+    },
+    {
+      "word": "south korea",
+      "weight": 0.528
+    },
+    {
+      "word": "report",
+      "weight": 0.512
+    }
+  ]
+}
